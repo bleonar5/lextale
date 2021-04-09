@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function() {
     basic_times.page_loaded = Date.now();
     document.getElementById('finished_id').addEventListener("touchstart", touchstart, false);
     document.getElementById('finished_id').addEventListener("touchend", touchend, false);
+    select_lg();
 });
 
 let timer;
@@ -72,7 +73,9 @@ function lexclick(lexrespd) {
         lex_next();
     } else {
         let lex_score = (corr_word / 40 * 100 + corr_nonword / 20 * 100) / 2;
+        //window.location.href = 'https://www.mturk.com/mturk/externalSubmit'
         document.getElementById('div_lex_main').style.display = 'none';
+        /*
         document.getElementById('div_end').style.display = 'block';
 
         console.log('Correctly identified real words: ' + corr_word +
@@ -83,7 +86,7 @@ function lexclick(lexrespd) {
             '<span style="font-variant: small-caps;">LexTALE score: <b>' + lex_score.toFixed(2) +
             '%</span></b><br>Correctly identified real words: <b>' + corr_word +
             '</b> (out of 40)<br>Correctly identified pseudo words: <b>' + corr_nonword +
-            '</b> (out of 20)' + get_times();
+            '</b> (out of 20)' + get_times();*/
     }
 }
 
