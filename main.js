@@ -5,6 +5,10 @@ let lexlang = 'en'; // English: 'en', German: 'de', Dutch: 'nl', Chinese: 'ch1',
 let path_imgs = './ch_items/';
 
 document.addEventListener("DOMContentLoaded", function() {
+    assignment_id = location.search.match(/assignmentId=(\w+)/)[1];
+    console.log(assignment_id);
+    if(assignment_id == 'ASSIGNMENT_ID_NOT_AVAILABLE')
+        $('#startbuttn').prop('disabled',true);
     preload_single('LEXTALE_CH_instructions.png', 'intro_ch');
     basic_times.page_loaded = Date.now();
     document.getElementById('finished_id').addEventListener("touchstart", touchstart, false);
