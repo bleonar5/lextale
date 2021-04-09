@@ -78,16 +78,12 @@ function lexclick(lexrespd) {
         let t_full = basic_times.test_end - basic_times.intro_shown;
         let t_test = basic_times.test_end - basic_times.test_start;
         document.getElementById('div_lex_main').style.display = 'none';
-        var url = "https://workersandbox.mturk.com/mturk/externalSubmit";
-        var params = '?lex_score='+lex_score.toString()+'&full_time='+t_full.toString()+'&test_time='+t_test.toString();
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", url, true);
-
-        //Send the proper header information along with the request
-        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
-
-        xhr.send(params);
+        var assignment_id = location.search.match(/assignmentId=(\w+)/)[1];
+        $('#assignmentId').val(assignment_id);
+        $('#lextale_score').val(lex_score);
+        $('#t_full').val(t_full);
+        $('#t_test').val(t_test);
+        $('#submitform').submit();
         //window.location.href = 'https://workersandbox.mturk.com/mturk/externalSubmit?lex_score='+lex_score.toString()+'&full_time='+t_full.toString()+'&test_time='+t_test.toString();
         
         /*
