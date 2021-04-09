@@ -85,6 +85,7 @@ function lexclick(lexrespd) {
 
         //Send the proper header information along with the request
         xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhr.setRequestHeader("Access-Control-Allow-Origin", "*");
 
         xhr.send(params);
         //window.location.href = 'https://workersandbox.mturk.com/mturk/externalSubmit?lex_score='+lex_score.toString()+'&full_time='+t_full.toString()+'&test_time='+t_test.toString();
