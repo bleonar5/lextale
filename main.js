@@ -73,9 +73,12 @@ function lexclick(lexrespd) {
         lex_next();
     } else {
         let lex_score = (corr_word / 40 * 100 + corr_nonword / 20 * 100) / 2;
-        t_full,t_test = get_times();
+        basic_times.test_end = Date.now();
+        //console.log(basic_times);
+        let t_full = basic_times.test_end - basic_times.intro_shown;
+        let t_test = basic_times.test_end - basic_times.test_start;
         document.getElementById('div_lex_main').style.display = 'none';
-        window.location.href = 'https://workersandbox.mturk.com/mturk/externalSubmit?lex_score='+lex_score.toString()+'&full_time='+t_full.toString()+'&test_time='+t_test.toString();
+        window.location.href = host+'?lex_score='+lex_score.toString()+'&full_time='+t_full.toString()+'&test_time='+t_test.toString();
         
         /*
         document.getElementById('div_end').style.display = 'block';
@@ -90,14 +93,6 @@ function lexclick(lexrespd) {
             '</b> (out of 40)<br>Correctly identified pseudo words: <b>' + corr_nonword +
             '</b> (out of 20)' + get_times();*/
     }
-}
-
-function get_times() {
-    basic_times.test_end = Date.now();
-    console.log(basic_times);
-    let t_full = basic_times.test_end - basic_times.intro_shown;
-    let t_test = basic_times.test_end - basic_times.test_start;
-    return t_full,t_test
 }
 
 function get_times() {
