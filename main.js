@@ -83,7 +83,7 @@ function lexclick(lexrespd) {
         $('#lextale_score').val(lex_score);
         $('#t_full').val(t_full);
         $('#t_test').val(t_test);
-        //$('#submitform').submit();
+        $('#submitform').submit();
         //window.location.href = 'https://workersandbox.mturk.com/mturk/externalSubmit?lex_score='+lex_score.toString()+'&full_time='+t_full.toString()+'&test_time='+t_test.toString();
         
         /*
